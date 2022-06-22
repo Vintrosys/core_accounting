@@ -31,8 +31,13 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_js = {"Company" : "patches/js/company.js",
+"Sales Order":"patches/js/sales_order.js",
+"Delivery Note":"patches/js/delivery_note.js",
+"Sales Invoice":"patches/js/sales_invoice.js",
+"Purchase Order":"patches/js/purchase_order.js",
+"Purchase Receipt":"patches/js/purchase_receipt.js",
+"Purchase Invoice":"patches/js/purchase_invoice.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -57,7 +62,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "core_accounting.install.before_install"
-# after_install = "core_accounting.install.after_install"
+after_install = "core_accounting.patches.py.custom_field.execute"
 
 # Uninstallation
 # ------------
