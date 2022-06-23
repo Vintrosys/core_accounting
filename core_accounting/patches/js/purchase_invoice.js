@@ -1,14 +1,13 @@
+var main_data
+frappe.ui.form.on("Purchase Invoice",{
+	refresh:function(frm,cdt,cdn){
+		main_data=locals[cdt][cdn]
+	}
+})
 frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(value =>{
     if(value==1){
 		var tax_category
 		var tax_and_charges
-		var main_data
-		frappe.ui.form.on("Purchase Invoice",{
-			refresh:function(frm,cdt,cdn){
-				main_data=locals[cdt][cdn]
-			}
-		})
-
 		frappe.ui.form.on("Purchase Invoice Item",{
 			item_code:function(frm,cdt,cdn){
 				var data = locals[cdt][cdn]
