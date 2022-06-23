@@ -99,14 +99,19 @@ after_install = "core_accounting.patches.py.custom_field.execute"
 # Document Events
 # ---------------
 # Hook on document methods and events
+doc_events = {
+	"Sales Invoice":{
+		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
+					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",],
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+	},
+	"Sales Order":{
+		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
+				    "core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater"]
+	},
+
+}
+
 
 # Scheduled Tasks
 # ---------------

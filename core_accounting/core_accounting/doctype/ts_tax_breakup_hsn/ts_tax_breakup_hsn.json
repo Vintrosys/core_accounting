@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-23 09:20:51.576170",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_hsn_code",
+  "ts_gst_rate",
+  "ts_taxable_values",
+  "ts_central_tax",
+  "ts_central_amount",
+  "ts_state_tax",
+  "ts_state_amount",
+  "ts_total_tax_amount",
+  "ts_igst_tax",
+  "ts_igst_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN Code"
+  },
+  {
+   "fieldname": "ts_gst_rate",
+   "fieldtype": "Percent",
+   "label": "GST Rate"
+  },
+  {
+   "fieldname": "ts_taxable_values",
+   "fieldtype": "Currency",
+   "label": "Taxable Values"
+  },
+  {
+   "fieldname": "ts_central_tax",
+   "fieldtype": "Percent",
+   "label": "CGST Tax"
+  },
+  {
+   "fieldname": "ts_central_amount",
+   "fieldtype": "Currency",
+   "label": "CGST Amount"
+  },
+  {
+   "fieldname": "ts_state_tax",
+   "fieldtype": "Percent",
+   "label": "SGST Tax"
+  },
+  {
+   "fieldname": "ts_state_amount",
+   "fieldtype": "Currency",
+   "label": "SGST Amount"
+  },
+  {
+   "fieldname": "ts_total_tax_amount",
+   "fieldtype": "Currency",
+   "label": "Total Tax Amount"
+  },
+  {
+   "fieldname": "ts_igst_tax",
+   "fieldtype": "Percent",
+   "label": "IGST Tax"
+  },
+  {
+   "fieldname": "ts_igst_amount",
+   "fieldtype": "Currency",
+   "label": "IGST Amount"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-06-23 09:20:51.576170",
+ "modified_by": "Administrator",
+ "module": "core accounting",
+ "name": "TS Tax Breakup HSN",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

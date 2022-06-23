@@ -27,7 +27,7 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
         frappe.ui.form.on("Company",{
             before_save:function(){
                 frappe.call({
-                    method:"core_accounting.patches.py.company.property_terminator",
+                    method:"core_accounting.patches.py.company.property_creator",
                     callback(ts_r){
                         ts_property_cdn.push(ts_r.message[0])
                         ts_property_cdn.push(ts_r.message[1])
@@ -48,7 +48,7 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
         frappe.ui.form.on("Company",{
             before_save:function(){
                 frappe.call({
-                    method:"core_accounting.patches.py.company.property_terminator",
+                    method:"core_accounting.patches.py.company.property_creator",
                     callback(ts_r){
                         ts_property_cdn.push(ts_r.message[0])
                         ts_property_cdn.push(ts_r.message[1])

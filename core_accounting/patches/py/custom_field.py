@@ -15,10 +15,37 @@ def execute():
 		],
 		"Item Tax Template":[
 			dict(fieldname='tax_category', label='Tax Category',
-				fieldtype='Link', options='Tax Category',Mandatory=1,insert_after='taxes', read_only=0),
+				fieldtype='Link', options='Tax Category',reqd=1,insert_after='taxes', read_only=0),
 			dict(fieldname='transaction_type', label='Transaction Type',
-				fieldtype='Select', options='\nSales\nPurchase',Mandatory=1,insert_after='tax_category'),
-		]
+				fieldtype='Select', options='\nSales\nPurchase',reqd=1,insert_after='tax_category'),
+		],
+		"Sales Invoice":[
+			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
+				fieldtype='Section Break',insert_after='total_taxes_and_charges',hidden=1),
+		
+			dict(fieldname='ts_tax_breakup_table', label='Tax Breakup GST Table',
+				fieldtype='Table', options='TS Tax Breakup',insert_after='ts_tax_breakup',read_only=1),
+
+			dict(fieldname='ts_tax_breakup_hsn', label='Tax Breakup HSN',
+				fieldtype='Section Break', insert_after='ts_tax_breakup_table',hidden=1),
+			
+			dict(fieldname='ts_tax_breakup_gst_table', label='Tax Breakup HSN Table',
+				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1),
+		],
+		"Sales Order":[
+			
+			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
+				fieldtype='Section Break',insert_after='total_taxes_and_charges',hidden=1),
+		
+			dict(fieldname='ts_tax_breakup_table', label='Tax Breakup GST Table',
+				fieldtype='Table', options='TS Tax Breakup',insert_after='ts_tax_breakup',read_only=1),
+
+			dict(fieldname='ts_tax_breakup_hsn', label='Tax Breakup HSN',
+				fieldtype='Section Break', insert_after='ts_tax_breakup_table',hidden=1),
+			
+			dict(fieldname='ts_tax_breakup_gst_table', label='Tax Breakup HSN Table',
+				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1),
+		],
+
 	}
     create_custom_fields(custom_fields)
-    print('finished')

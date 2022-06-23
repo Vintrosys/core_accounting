@@ -7,10 +7,14 @@
  "engine": "InnoDB",
  "field_order": [
   "ts_accounting_section",
-  "ts_tax_fetching"
+  "ts_tax_fetching",
+  "ts_gst",
+  "ts_hsn"
  ],
  "fields": [
   {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:!doc.__islocal",
    "fieldname": "ts_accounting_section",
    "fieldtype": "Section Break",
    "label": "Accounting"
@@ -21,12 +25,26 @@
    "fieldname": "ts_tax_fetching",
    "fieldtype": "Check",
    "label": "Tax Fetching"
+  },
+  {
+   "default": "0",
+   "description": "GST wise tax will be calculated for In-State and Out-State",
+   "fieldname": "ts_gst",
+   "fieldtype": "Check",
+   "label": "GST"
+  },
+  {
+   "default": "0",
+   "description": "HSN code wise tax will be calculated for In-State and Out-State",
+   "fieldname": "ts_hsn",
+   "fieldtype": "Check",
+   "label": "HSN"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-06-22 09:40:15.949145",
+ "modified": "2022-06-23 09:11:40.962860",
  "modified_by": "Administrator",
  "module": "core accounting",
  "name": "Core Accounting Settings",
