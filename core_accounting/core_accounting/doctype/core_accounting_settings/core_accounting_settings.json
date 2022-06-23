@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-22 09:39:59.428981",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_accounting_section",
+  "ts_tax_fetching",
+  "ts_gst",
+  "ts_hsn"
+ ],
+ "fields": [
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:!doc.__islocal",
+   "fieldname": "ts_accounting_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting"
+  },
+  {
+   "default": "0",
+   "description": "Automatic Tax Fetching for Sales Order, Delivery Note, Sales Invoice, Purchase Order, Purchase Receipt and Purchase Invoice",
+   "fieldname": "ts_tax_fetching",
+   "fieldtype": "Check",
+   "label": "Tax Fetching"
+  },
+  {
+   "default": "0",
+   "description": "GST wise tax will be calculated for In-State and Out-State",
+   "fieldname": "ts_gst",
+   "fieldtype": "Check",
+   "label": "GST"
+  },
+  {
+   "default": "0",
+   "description": "HSN code wise tax will be calculated for In-State and Out-State",
+   "fieldname": "ts_hsn",
+   "fieldtype": "Check",
+   "label": "HSN"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-06-23 09:11:40.962860",
+ "modified_by": "Administrator",
+ "module": "core accounting",
+ "name": "Core Accounting Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
