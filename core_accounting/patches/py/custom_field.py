@@ -46,6 +46,22 @@ def execute():
 			dict(fieldname='ts_tax_breakup_gst_table', label='Tax Breakup HSN Table',
 				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1),
 		],
+		"Sales Order Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+                    ),
+        ],
+		"Purchase Order Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+                    ),
+        ]
 
 	}
     create_custom_fields(custom_fields)
