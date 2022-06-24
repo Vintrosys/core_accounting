@@ -50,7 +50,7 @@ def tax_fixing(company,item_code,tax_category,transaction_type,ts_condition):
 			return 0
 
 @frappe.whitelist()
-def tax_template_filltering(company,item_code,tax_category=None,transaction_type=None):
+def tax_template_filtering(company,item_code,tax_category=None,transaction_type=None):
 	enable_tax_company=frappe.get_doc("Company",company)
 	if(enable_tax_company.__dict__["enable_mulltiple_item_tax_templates"]==1):
 		if(tax_category==None or tax_category==""):

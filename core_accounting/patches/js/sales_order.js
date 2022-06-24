@@ -18,7 +18,7 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
 					tax_category=main_data.tax_category
 					tax_and_charges=main_data.taxes_and_charges
 					frappe.call({
-						method:"core_accounting.patches.py.tax.tax_template_filltering",
+						method:"core_accounting.patches.py.tax.tax_template_filtering",
 						args:{company,item_code,tax_category,transaction_type},
 						callback(r){
 							if(r.message===0){
