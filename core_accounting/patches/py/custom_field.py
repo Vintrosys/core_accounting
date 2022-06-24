@@ -52,6 +52,7 @@ def execute():
                         fieldtype= "Data",
                         insert_after= "price_list_rate",
                         label= "Item GST",
+						read_only=1
                     ),
         ],
 		"Purchase Order Item": [
@@ -60,6 +61,25 @@ def execute():
                         fieldtype= "Data",
                         insert_after= "price_list_rate",
                         label= "Item GST",
+						read_only=1
+                    ),
+        ],
+		"Purchase Invoice Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+						read_only=1
+                    ),
+        ],
+		"Sales Invoice Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+						read_only=1
                     ),
         ]
 
