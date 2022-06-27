@@ -113,6 +113,14 @@ doc_events = {
 	},
 	"Item":{
 		"validate":"core_accounting.patches.py.item.data_import"
+	},
+	"Purchase Invoice":{
+		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
+					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater"]
+	},
+	"Purchase Order":{
+		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
+			"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater"]
 	}
 
 }
