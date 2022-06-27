@@ -38,6 +38,20 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
 						}
 					})
 				}
+			},
+			item_tax_template:function(frm,cdt,cdn){
+				var data = locals[cdt][cdn]
+				var item_tax_percentage=data.item_tax_template
+                if(item_tax_percentage){
+                    frappe.call({
+                        method:"core_accounting.patches.py.item_tax_percentage.item_tax_percentage",
+                        args:{item_tax_percentage},
+                        callback(r){
+                            frappe.model.set_value(cdt,cdn,"ts_item_gst",r.message)
+							frm.refresh()
+                        }
+					})
+				}
 			}
 		})
 	}
