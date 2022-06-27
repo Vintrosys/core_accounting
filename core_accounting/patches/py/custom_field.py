@@ -81,6 +81,24 @@ def execute():
                         label= "Item GST",
 						read_only=1
                     ),
+        ],
+		"Delivery Note Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+						read_only=1
+                    ),
+        ],
+		"Purchase Receipt Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+						read_only=1
+                    ),
         ]
 
 	}
