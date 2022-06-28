@@ -1,7 +1,7 @@
 
 import frappe
 import json
-from frappe.custom.doctype.custom_field.custom_field import CustomField, create_custom_fields
+from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 def item_custom_fields():
     custom_fields = {
         "Item":[
@@ -57,9 +57,6 @@ def item_custom_fields():
 def item_template_tax(item_tax,tax):
     tax=json.loads(tax)
     item_template=frappe.get_all("Item Tax Template", filters={'tax_template':item_tax,'name':['not in',tax]}, fields=['tax_category','name'])
-    tax_table=[]
-    for item_template in tax_table:
-        taxes={'item_tax_template':'tax_table'}
     return item_template
 
 @frappe.whitelist()
@@ -77,11 +74,10 @@ def item_template_remove(item_tax,tax):
     return taxes
 
 def data_import(doc, action):
-    if doc.item_tax==doc.item_tax:
-        item_template=frappe.get_all("Item Tax Template", filters={'tax_template':doc.item_tax}, fields=['tax_category','name'])
-        tax_table=[]
-        for item in item_template:
-            tax_table.append({'item_tax_template':item.name,'tax_category':item.tax_category})
-        doc.update({'taxes':tax_table})
+    item_template=frappe.get_all("Item Tax Template", filters={'tax_template':doc.item_tax}, fields=['tax_category','name'])
+    tax_table=[]
+    for item in item_template:
+        tax_table.append({'item_tax_template':item.name,'tax_category':item.tax_category})
+    doc.update({'taxes':tax_table})
 
    

@@ -41,7 +41,6 @@ frappe.ui.form.on('Item', {
                     tax:frm.doc.taxes
                 },
                 callback(r){
-                    console.log(r.message)
                     frm.set_value('taxes',[])
                     frm.set_value('taxes', r.message)
                     frm.refresh()
