@@ -22,7 +22,8 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
 						method:"core_accounting.patches.py.tax.tax_template_filtering",
 						args:{company,item_code,tax_category,transaction_type},
 						callback(r){
-							if(r.message===0){
+							if(r.message)
+							{if(r.message===0){
 								frappe.model.set_value(cdt,cdn,"item_code","")
 							}
 							else if(r.message===1){
@@ -33,7 +34,7 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
 							}
 							else{
 								frappe.model.set_value(cdt,cdn,"item_tax_template",r.message)
-							}
+							}}
 						}
 					})
 				}
