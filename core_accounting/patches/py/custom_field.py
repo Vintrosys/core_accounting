@@ -1,7 +1,10 @@
 from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
-
+from core_accounting.patches.py.item import item_custom_fields
 def execute():
+	fields()
+	item_custom_fields()
 
+def fields():
     custom_fields = {
 		"Company": [
 			dict(fieldname='tax_settings', label='Tax Settings',
@@ -18,6 +21,8 @@ def execute():
 				fieldtype='Link', options='Tax Category',reqd=1,insert_after='taxes', read_only=0),
 			dict(fieldname='transaction_type', label='Transaction Type',
 				fieldtype='Select', options='\nSales\nPurchase',reqd=1,insert_after='tax_category'),
+			dict(fieldname='tax_template', label='Item GST%',
+				fieldtype='Link', options='TS Item Tax',insert_after='title',read_only=0),
 		],
 		"Sales Invoice":[
 			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
