@@ -45,7 +45,7 @@ def ts_tax_breakup_separater(ts_document,action):
                         if(len(ts_tax_type)==1):
                             if(ts_separate_tax_category[ts_x] == ts_tax_type[0]):
                                 ts_igst_tax.append(ts_tax_percentage_amount[ts_j][ts_x])
-                if(ts_main_tax_category=="In-State"):
+                if(ts_main_tax_category=="In-State" or ts_main_tax_category=="Tamil Nadu"):
                     for ts_loop in ts_cgst_tax:
                         for ts_y in range(0,len(ts_cgst_tax),1):
                             if(ts_cgst_tax[ts_y]["tax_rate"] not in ts_cgst_checking_completed):
