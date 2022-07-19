@@ -1,5 +1,5 @@
 var main_data
-frappe.ui.form.on("Sales Invoice",{
+frappe.ui.form.on("POS Invoice",{
 	refresh:function(frm,cdt,cdn){
 		main_data=locals[cdt][cdn]
 
@@ -9,7 +9,7 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
     if(value==1){
 		var tax_category
 		var tax_and_charges
-		frappe.ui.form.on("Sales Invoice Item",{
+		frappe.ui.form.on("POS Invoice Item",{
 			item_code:function(frm,cdt,cdn){
 				var data = locals[cdt][cdn]
 				var item_code=data.item_code
