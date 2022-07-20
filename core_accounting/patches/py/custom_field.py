@@ -21,8 +21,8 @@ def fields():
 				fieldtype='Link', options='Tax Category',reqd=1,insert_after='taxes', read_only=0),
 			dict(fieldname='transaction_type', label='Transaction Type',
 				fieldtype='Select', options='\nSales\nPurchase',reqd=1,insert_after='tax_category'),
-			dict(fieldname='tax_template', label='Item GST%',
-				fieldtype='Link', options='TS Item Tax',insert_after='title',read_only=0),
+			# dict(fieldname='tax_template', label='Item GST%',
+			# 	fieldtype='Link', options='TS Item Tax',insert_after='title',read_only=0),
 		],
 		"Sales Invoice":[
 			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
