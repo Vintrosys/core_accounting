@@ -16,14 +16,14 @@ def fields():
 			dict(fieldname='ts_allow_only_tax_applied', label='Allow only tax applied',
 				fieldtype='Check', depends_on='eval:doc.enable_mulltiple_item_tax_templates==1 && doc.ts_allow_tax_with_message==0',insert_after='ts_allow_tax_with_message', read_only=0),
 		],
-		# "Item Tax Template":[
-		# 	dict(fieldname='tax_category', label='Tax Category',
-		# 		fieldtype='Link', options='Tax Category',reqd=1,insert_after='taxes', read_only=0),
-		# 	dict(fieldname='transaction_type', label='Transaction Type',
-		# 		fieldtype='Select', options='\nSales\nPurchase',reqd=1,insert_after='tax_category'),
-		# 	dict(fieldname='tax_template', label='Item GST%',
-		# 		fieldtype='Link', options='TS Item Tax',insert_after='title',read_only=0),
-		# ],
+		"Item Tax Template":[
+			dict(fieldname='tax_category', label='Tax Category',
+				fieldtype='Link', options='Tax Category',reqd=1,insert_after='taxes', read_only=0),
+			dict(fieldname='transaction_type', label='Transaction Type',
+				fieldtype='Select', options='\nSales\nPurchase',reqd=1,insert_after='tax_category'),
+			# dict(fieldname='tax_template', label='Item GST%',
+			# 	fieldtype='Link', options='TS Item Tax',insert_after='title',read_only=0),
+		],
 		"Sales Invoice":[
 			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
 				fieldtype='Section Break',insert_after='total_taxes_and_charges',hidden=1),
