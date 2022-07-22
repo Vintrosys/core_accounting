@@ -39,7 +39,7 @@ doctype_js = {"Company" : "patches/js/company.js",
 "Purchase Receipt":"patches/js/purchase_receipt.js",
 "Purchase Invoice":"patches/js/purchase_invoice.js",
 "POS Invoice":"patches/js/pos_invoice.js",
-# "Item":"patches/js/item.js"
+"Item":"patches/js/item.js"
 }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
