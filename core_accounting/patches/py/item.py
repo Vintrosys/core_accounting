@@ -73,11 +73,5 @@ def item_template_remove(item_tax,tax):
             taxes.append({'item_tax_template':tax[i]['item_tax_template'],'tax_category':tax[i]['tax_category']})
     return taxes
 
-def data_import(doc, action):
-    item_template=frappe.get_all("Item Tax Template", filters={'tax_template':doc.item_tax}, fields=['tax_category','name'])
-    tax_table=[]
-    for item in item_template:
-        tax_table.append({'item_tax_template':item.name,'tax_category':item.tax_category})
-    doc.update({'taxes':tax_table})
 
    
