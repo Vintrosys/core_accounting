@@ -6,8 +6,7 @@ frappe.ui.form.on('Item', {
                 for(let row=0;row<frm.doc.taxes.length;row++){
                         tax.push(frm.doc.taxes[row].item_tax_template)
                 }
-            }
-            
+            }   
             frappe.call({
             method: "core_accounting.patches.py.item.item_template_tax",
             args: {
@@ -15,8 +14,6 @@ frappe.ui.form.on('Item', {
                 tax:tax
             },
             callback(r){
-               
-                
                     if(r.message.length){
                         r.message.forEach((data)=>{
                             if (!(data['name'] in tax))
