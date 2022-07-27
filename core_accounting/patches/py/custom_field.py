@@ -49,7 +49,7 @@ def fields():
 				fieldtype='Section Break', insert_after='ts_tax_breakup_table',hidden=1),
 			
 			dict(fieldname='ts_tax_breakup_gst_table', label='Tax Breakup HSN Table',
-				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1),
+				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1, allow_on_submit=1),
 		],
 		"Sales Order Item": [
                     dict(
