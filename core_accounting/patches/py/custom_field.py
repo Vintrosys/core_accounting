@@ -59,6 +59,26 @@ def fields():
                         label= "Item GST",
 						read_only=1
                     ),
+                    dict(
+                        fieldname= "ts_cgst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_item_gst",
+                        label= "CGST Amount",
+						read_only=1
+                    ),
+                    dict(
+                        fieldname= "ts_sgst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_cgst_amount",
+                        label= "SGST Amount",
+						read_only=1
+                    ),dict(
+                        fieldname= "ts_igst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_sgst_amount",
+                        label= "IGST Amount",
+						read_only=1
+                    ),
         ],
 		"Purchase Order Item": [
                     dict(
@@ -111,6 +131,32 @@ def fields():
                         insert_after= "price_list_rate",
                         label= "Item GST",
 						read_only=1
+                    ),
+                    dict(
+                        fieldname= "ts_cb_tax",
+                        fieldtype= "Column Break",
+                        insert_after= "ts_cgst_amount",
+                    ),
+                    dict(
+                        fieldname= "ts_cgst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_item_gst",
+                        label= "CGST Amount",
+						hidden=1,
+                    ),
+                    dict(
+                        fieldname= "ts_sgst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_cb_tax",
+                        label= "SGST Amount",
+						hidden=1,
+                    ),
+                    dict(
+                        fieldname= "ts_igst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_sgst_amount",
+                        label= "IGST Amount",
+						hidden=1,
                     ),
         ],
 		"Delivery Note Item": [

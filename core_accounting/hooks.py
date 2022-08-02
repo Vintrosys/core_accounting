@@ -105,7 +105,8 @@ after_install = "core_accounting.patches.py.custom_field.execute"
 doc_events = {
 	"Sales Invoice":{
 		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
-					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",],
+					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
+     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",],
 
 	},
 	"Sales Order":{
