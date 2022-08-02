@@ -9,7 +9,8 @@
   "ts_accounting_section",
   "ts_tax_fetching",
   "ts_gst",
-  "ts_hsn"
+  "ts_hsn",
+  "itemwise_tax_fetching"
  ],
  "fields": [
   {
@@ -39,12 +40,18 @@
    "fieldname": "ts_hsn",
    "fieldtype": "Check",
    "label": "HSN"
+  },
+  {
+   "default": "0",
+   "fieldname": "itemwise_tax_fetching",
+   "fieldtype": "Check",
+   "label": "Itemwise Tax Fetching"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-06-23 09:11:40.962860",
+ "modified": "2022-08-02 14:08:15.086633",
  "modified_by": "Administrator",
  "module": "core accounting",
  "name": "Core Accounting Settings",
