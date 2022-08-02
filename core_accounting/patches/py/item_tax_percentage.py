@@ -13,7 +13,7 @@ def item_tax_percentage(item_tax_percentage):
 
 def item_tax_amount(doc,event):
     ts_value=frappe.get_doc("Core Accounting Settings")
-    if ts_value.ts_gst==1:
+    if ts_value.itemwise_tax_fetching==1:
         if doc:
             if doc.tax_category:
                 ts_main_tax_category=doc.tax_category
