@@ -106,28 +106,33 @@ doc_events = {
 	"Sales Invoice":{
 		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
 					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
-     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",],
+     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount"
+         ]
 
 	},
 	"Sales Order":{
 		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
-				    "core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater"
-        			"core_accounting.patches.py.item_tax_percentage.item_tax_amount",]
+				    "core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
+        			"core_accounting.patches.py.item_tax_percentage.item_tax_amount",
+           ]
 	},
 	"Purchase Invoice":{
 		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
 					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
-     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",]
+     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",
+         ]
 	},
 	"Purchase Order":{
 		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
 			"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
-   			"core_accounting.patches.py.item_tax_percentage.item_tax_amount",]
+   			"core_accounting.patches.py.item_tax_percentage.item_tax_amount",
+      ]
 	},
 	"POS Invoice":{
 		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
 					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
-     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",],
+     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",
+         ],
 	},
 	"Item":{
 			"validate":"core_accounting.patches.py.item.data_import"
