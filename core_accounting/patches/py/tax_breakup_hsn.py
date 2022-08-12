@@ -2,8 +2,7 @@ import frappe
 from erpnext.controllers.taxes_and_totals import get_itemised_tax_breakup_data
 def ts_tax_breakup_separater(ts_document,action):
     ts_value=frappe.get_doc("Core Accounting Settings")
-    if ts_value.ts_hsn==1 and ts_document.status == 'Draft':
-        frappe.errprint(ts_document.status == 'Draft')
+    if ts_value.ts_hsn==1 and ts_document.docstatus == 0:
         if ts_document:
             ts_document.update({"ts_tax_breakup_gst_table":[]})
             if ts_document.tax_category:
