@@ -46,12 +46,13 @@ def item_tax_amount(doc,event):
                             if(ts_separate_tax_category[ts_x] == ts_tax_type[0]):
                                 igst_tax.append(ts_tax_percentage_amount[ts_j][ts_x])
                 if(ts_main_tax_category=="In-State" or ts_main_tax_category=="Tamil Nadu"):
+                    cgst_amount=[]
+                    sgst_amount=[]
                     for ts_loop in cgst_tax:
                         for ts_y in range(0,len(cgst_tax),1):
                             if(cgst_tax[ts_y]["tax_rate"] not in cgst_checking_completed):
                                 cgst_checking_completed.append(cgst_tax[ts_y]["tax_rate"])
                                 ts_flag=0
-                                cgst_amount=[]
                                 for ts_z in range(ts_y,len(cgst_tax),1):
                                     if(cgst_tax[ts_y]["tax_rate"]==cgst_tax[ts_z]["tax_rate"]):
                                         if(ts_flag==0):
@@ -63,32 +64,31 @@ def item_tax_amount(doc,event):
                                         if(ts_flag==0):
                                             ts_flag=1
                                             cgst_amount.append(cgst_tax[ts_y]["tax_amount"])
-                    for ts_a in range(0,len(sgst_tax),1):
-                        if(sgst_tax[ts_a]["tax_rate"] not in sgst_checking_completed):
-                            sgst_checking_completed.append(sgst_tax[ts_a]["tax_rate"])
-                            ts_flag=0
-                            sgst_amount=[]
-                            for ts_b in range(ts_a,len(sgst_tax),1):
-                                if(sgst_tax[ts_a]["tax_rate"]==sgst_tax[ts_b]["tax_rate"]):
-                                    if(ts_flag==0):
-                                        ts_flag=1
-                                        sgst_amount.append(sgst_tax[ts_a]["tax_amount"])
+                        for ts_a in range(0,len(sgst_tax),1):
+                            if(sgst_tax[ts_a]["tax_rate"] not in sgst_checking_completed):
+                                sgst_checking_completed.append(sgst_tax[ts_a]["tax_rate"])
+                                ts_flag=0
+                                for ts_b in range(ts_a,len(sgst_tax),1):
+                                    if(sgst_tax[ts_a]["tax_rate"]==sgst_tax[ts_b]["tax_rate"]):
+                                        if(ts_flag==0):
+                                            ts_flag=1
+                                            sgst_amount.append(sgst_tax[ts_a]["tax_amount"])
+                                        else:
+                                            sgst_amount.append(sgst_tax[ts_b]["tax_amount"])
                                     else:
-                                        sgst_amount.append(sgst_tax[ts_b]["tax_amount"])
-                                else:
-                                    if(ts_flag==0):
-                                        ts_flag=1
-                                        sgst_amount.append(sgst_tax[ts_a]["tax_amount"])
+                                        if(ts_flag==0):
+                                            ts_flag=1
+                                            sgst_amount.append(sgst_tax[ts_a]["tax_amount"])
                         for i in range(0,len(doc.items)):
                             doc.items[i].ts_igst_amount = 0
                             doc.items[i].ts_sgst_amount = sgst_amount[i]
                             doc.items[i].ts_cgst_amount = cgst_amount[i]
                 if(ts_main_tax_category=="Out-State"):
+                    igst_amount=[]
                     for ts_i in range(0,len(igst_tax),1):
                         if(igst_tax[ts_i]["tax_rate"] not in igst_checking_completed):
                             igst_checking_completed.append(igst_tax[ts_i]["tax_rate"])
                             ts_flag=0
-                            igst_amount=[]
                             for ts_j in range(ts_i,len(igst_tax),1):
                                 if(igst_tax[ts_i]["tax_rate"]==igst_tax[ts_j]["tax_rate"]):
                                     if(ts_flag==0):
