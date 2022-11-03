@@ -41,10 +41,10 @@ def ts_tax_breakup_separater(ts_document,action):
                                         ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
 
                                     else:
-                                        ts_same_hsn_item.append(ts_tax_item[ts_ih])
+                                        ts_same_hsn_item.append(ts_tax_item[ts_in])
                                         ts_same_hsn_details.append(ts_tax_hsn[ts_ih])
-                                        ts_tax_details_separated.append(ts_tax_details[ts_ih])
-                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_ih]
+                                        ts_tax_details_separated.append(ts_tax_details[ts_in])
+                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
                                 else:
                                     if(ts_count==0):
                                         ts_count=1
