@@ -30,6 +30,10 @@ frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(va
 								frappe.show_alert({ message: __('Tax Category is not selected'), indicator: 'red' });
 							}
 							else if(r.message===2 || r.message[1]===2){
+								setTimeout(()=>{
+									frappe.model.set_value(cdt,cdn,"item_tax_template","")
+								},300)
+								
 								frappe.show_alert({ message: __("There Is No Tax Template For Item : "+item_code), indicator: 'red' });
 							}
 							else{

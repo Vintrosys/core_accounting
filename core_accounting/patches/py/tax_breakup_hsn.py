@@ -140,7 +140,7 @@ def ts_tax_breakup_separater(ts_document,action):
                                     "ts_total_tax_amount":ts_final_total_tax_amount[ts_i]
                                 })
 
-                        if(ts_main_tax_category=="Out-State"):
+                        if(ts_main_tax_category=="Out-State" or ts_main_tax_category == "Export Sales" or ts_main_tax_category == "0% SEZ"):
                             for ts_i in range(0,len(ts_igst_tax),1):
                                 if(ts_igst_tax[ts_i]["tax_rate"] not in ts_igst_checking_completed):
                                     ts_igst_checking_completed.append(ts_igst_tax[ts_i]["tax_rate"])
