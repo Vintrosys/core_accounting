@@ -37,6 +37,19 @@ def fields():
 			dict(fieldname='ts_tax_breakup_gst_table', label='Tax Breakup HSN Table',
 				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1),
 		],
+        "Quotation":[
+			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
+				fieldtype='Section Break',insert_after='total_taxes_and_charges',hidden=1),
+		
+			dict(fieldname='ts_tax_breakup_table', label='Tax Breakup GST Table',
+				fieldtype='Table', options='TS Tax Breakup',insert_after='ts_tax_breakup',read_only=1),
+
+			dict(fieldname='ts_tax_breakup_hsn', label='Tax Breakup HSN',
+				fieldtype='Section Break', insert_after='ts_tax_breakup_table',hidden=1),
+			
+			dict(fieldname='ts_tax_breakup_gst_table', label='Tax Breakup HSN Table',
+				fieldtype='Table', options='TS Tax Breakup HSN',insert_after='ts_tax_breakup_hsn',read_only=1),
+		],
 		"Sales Order":[
 			
 			dict(fieldname='ts_tax_breakup', label='Tax Breakup GST',
@@ -184,6 +197,41 @@ def fields():
                     ),
         ],
 		"Sales Invoice Item": [
+                    dict(
+                        fieldname= "ts_item_gst",
+                        fieldtype= "Data",
+                        insert_after= "price_list_rate",
+                        label= "Item GST",
+						read_only=1
+                    ),
+                    dict(
+                        fieldname= "ts_cb_tax",
+                        fieldtype= "Column Break",
+                        insert_after= "ts_cgst_amount",
+                    ),
+                    dict(
+                        fieldname= "ts_cgst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_item_gst",
+                        label= "CGST Amount",
+						hidden=1,
+                    ),
+                    dict(
+                        fieldname= "ts_sgst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_cb_tax",
+                        label= "SGST Amount",
+						hidden=1,
+                    ),
+                    dict(
+                        fieldname= "ts_igst_amount",
+                        fieldtype= "Currency",
+                        insert_after= "ts_sgst_amount",
+                        label= "IGST Amount",
+						hidden=1,
+                    ),
+        ],
+        "Quotation Item": [
                     dict(
                         fieldname= "ts_item_gst",
                         fieldtype= "Data",

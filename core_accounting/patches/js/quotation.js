@@ -1,7 +1,7 @@
 var main_data
 var tax_category
 var tax_and_charges
-frappe.ui.form.on("Sales Invoice",{
+frappe.ui.form.on("Quotation",{
 	refresh:function(frm,cdt,cdn){
 		main_data=locals[cdt][cdn]
 
@@ -16,7 +16,7 @@ frappe.ui.form.on("Sales Invoice",{
 frappe.db.get_single_value("Core Accounting Settings","ts_tax_fetching").then(value =>{
     if(value==1){
 		
-		frappe.ui.form.on("Sales Invoice Item",{
+		frappe.ui.form.on("Quotation Item",{
 			item_code:function(frm,cdt,cdn){
 				fetch_tax(frm, main_data, cdt, cdn)
 			},

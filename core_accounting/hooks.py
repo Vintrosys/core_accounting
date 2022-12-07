@@ -39,7 +39,8 @@ doctype_js = {"Company" : "patches/js/company.js",
 "Purchase Receipt":"patches/js/purchase_receipt.js",
 "Purchase Invoice":"patches/js/purchase_invoice.js",
 "POS Invoice":"patches/js/pos_invoice.js",
-"Item":"patches/js/item.js"
+"Item":"patches/js/item.js",
+"Quotation": 'patches/js/quotation.js'
 }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -137,6 +138,12 @@ doc_events = {
 	"Item":{
 			"validate":"core_accounting.patches.py.item.data_import"
 		},
+	"Quotation":{
+		"validate":["core_accounting.patches.py.tax_breakup_gst.ts_tax_breakup_separater",
+					"core_accounting.patches.py.tax_breakup_hsn.ts_tax_breakup_separater",
+     				"core_accounting.patches.py.item_tax_percentage.item_tax_amount",
+         ]
+	}
 }
 
 
