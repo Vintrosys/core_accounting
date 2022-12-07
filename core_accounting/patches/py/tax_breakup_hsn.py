@@ -41,10 +41,10 @@ def ts_tax_breakup_separater(ts_document,action):
                                         ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
 
                                     else:
-                                        ts_same_hsn_item.append(ts_tax_item[ts_ih])
+                                        ts_same_hsn_item.append(ts_tax_item[ts_in])
                                         ts_same_hsn_details.append(ts_tax_hsn[ts_ih])
-                                        ts_tax_details_separated.append(ts_tax_details[ts_ih])
-                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_ih]
+                                        ts_tax_details_separated.append(ts_tax_details[ts_in])
+                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
                                 else:
                                     if(ts_count==0):
                                         ts_count=1
@@ -140,7 +140,7 @@ def ts_tax_breakup_separater(ts_document,action):
                                     "ts_total_tax_amount":ts_final_total_tax_amount[ts_i]
                                 })
 
-                        if(ts_main_tax_category=="Out-State"):
+                        if(ts_main_tax_category=="Out-State" or ts_main_tax_category == "Export Sales" or ts_main_tax_category == "0% SEZ"):
                             for ts_i in range(0,len(ts_igst_tax),1):
                                 if(ts_igst_tax[ts_i]["tax_rate"] not in ts_igst_checking_completed):
                                     ts_igst_checking_completed.append(ts_igst_tax[ts_i]["tax_rate"])
