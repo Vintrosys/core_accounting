@@ -12,6 +12,7 @@ def item_tax_percentage(item_tax_percentage):
     return tax_total
 
 def item_tax_amount(doc,event):
+    if(doc.docstatus == 1):return
     ts_value=frappe.get_doc("Core Accounting Settings")
     if ts_value.itemwise_tax_fetching==1:
         if doc:

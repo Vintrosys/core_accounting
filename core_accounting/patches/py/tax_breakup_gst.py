@@ -1,6 +1,7 @@
 from erpnext.controllers.taxes_and_totals import get_itemised_tax_breakup_data
 import frappe
 def ts_tax_breakup_separater(ts_document,action):
+    if(ts_document.docstatus == 1):return
     ts_value=frappe.get_doc("Core Accounting Settings")
     if ts_value.ts_gst==1 and ts_document.docstatus == 0:
         if ts_document:

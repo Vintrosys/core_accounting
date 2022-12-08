@@ -7,6 +7,7 @@ frappe.ui.form.on("Quotation",{
 
 	},
 	validate(frm){
+		if(frm.doc.docstatus == 1)return
 		frm.doc.items.forEach(d => {
 			fetch_tax(frm, main_data, d.doctype, d.name)
 		})
