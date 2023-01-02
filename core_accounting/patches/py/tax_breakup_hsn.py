@@ -39,20 +39,20 @@ def ts_tax_breakup_separater(ts_document,action):
                                         ts_same_hsn_item.append(ts_tax_item[ts_in])
                                         ts_same_hsn_details.append(ts_tax_hsn[ts_in])
                                         ts_tax_details_separated.append(ts_tax_details[ts_in])
-                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
+                                        ts_final_valuable_amount=itemised_taxable_amount[ts_in]
 
                                     else:
                                         ts_same_hsn_item.append(ts_tax_item[ts_in])
                                         ts_same_hsn_details.append(ts_tax_hsn[ts_ih])
                                         ts_tax_details_separated.append(ts_tax_details[ts_in])
-                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
+                                        ts_final_valuable_amount=itemised_taxable_amount[ts_in]
                                 else:
                                     if(ts_count==0):
                                         ts_count=1
                                         ts_same_hsn_item.append(ts_tax_item[ts_in])
                                         ts_same_hsn_details.append(ts_tax_hsn[ts_in])
                                         ts_tax_details_separated.append(ts_tax_details[ts_in])
-                                        ts_final_valuable_amount=ts_final_valuable_amount+itemised_taxable_amount[ts_in]
+                                        ts_final_valuable_amount=itemised_taxable_amount[ts_in]
                         ts_tax_category=[]
                         ts_tax_percentage_amount=[]
                         ts_cgst_tax=[]
@@ -94,13 +94,13 @@ def ts_tax_breakup_separater(ts_document,action):
                                             if(ts_cgst_tax[ts_y]["tax_rate"]==ts_cgst_tax[ts_z]["tax_rate"]):
                                                 if(ts_flag==0):
                                                     ts_flag=1
-                                                    ts_cgst_amount=ts_cgst_amount+ts_cgst_tax[ts_y]["tax_amount"]
+                                                    ts_cgst_amount=ts_cgst_tax[ts_y]["tax_amount"]
                                                 else:
-                                                    ts_cgst_amount=ts_cgst_amount+ts_cgst_tax[ts_z]["tax_amount"]
+                                                    ts_cgst_amount=ts_cgst_tax[ts_z]["tax_amount"]
                                             else:
                                                 if(ts_flag==0):
                                                     ts_flag=1
-                                                    ts_cgst_amount=ts_cgst_amount+ts_cgst_tax[ts_y]["tax_amount"]
+                                                    ts_cgst_amount=ts_cgst_tax[ts_y]["tax_amount"]
                                         ts_final_cgst_tax.append(ts_cgst_tax[ts_y]["tax_rate"])
                                         ts_final_cgst_amount.append(ts_cgst_amount)
 
@@ -113,13 +113,13 @@ def ts_tax_breakup_separater(ts_document,action):
                                             if(ts_sgst_tax[ts_a]["tax_rate"]==ts_sgst_tax[ts_b]["tax_rate"]):
                                                 if(ts_flag==0):
                                                     ts_flag=1
-                                                    ts_sgst_amount=ts_sgst_amount+ts_sgst_tax[ts_a]["tax_amount"]
+                                                    ts_sgst_amount=ts_sgst_tax[ts_a]["tax_amount"]
                                                 else:
-                                                    ts_sgst_amount=ts_sgst_amount+ts_sgst_tax[ts_b]["tax_amount"]
+                                                    ts_sgst_amount=ts_sgst_tax[ts_b]["tax_amount"]
                                             else:
                                                 if(ts_flag==0):
                                                     ts_flag=1
-                                                    ts_sgst_amount=ts_sgst_amount+ts_sgst_tax[ts_a]["tax_amount"]
+                                                    ts_sgst_amount=ts_sgst_tax[ts_a]["tax_amount"]
                                         ts_final_sgst_tax.append(ts_sgst_tax[ts_a]["tax_rate"])
                                         ts_final_sgst_amount.append(ts_sgst_amount)
                             for ts_tc in range(0,len(ts_final_cgst_tax),1):
