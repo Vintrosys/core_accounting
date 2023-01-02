@@ -6,7 +6,7 @@ frappe.ui.form.on("Quotation",{
 		main_data=locals[cdt][cdn]
 
 	},
-	validate(frm){
+	after_save(frm){
 		if(frm.doc.docstatus == 1)return
 		frm.doc.items.forEach(d => {
 			fetch_tax(frm, main_data, d.doctype, d.name)
