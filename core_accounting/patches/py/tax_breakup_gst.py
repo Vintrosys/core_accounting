@@ -1,9 +1,8 @@
 from erpnext.controllers.taxes_and_totals import get_itemised_tax_breakup_data
 import frappe
 def ts_tax_breakup_separater(ts_document,action):
-    if(ts_document.docstatus == 1):return
     ts_value=frappe.get_doc("Core Accounting Settings")
-    if ts_value.ts_gst==1 and ts_document.docstatus == 0:
+    if ts_value.ts_gst==1 and ts_document.docstatus != 2:
         if ts_document:
             ts_document.update({"ts_tax_breakup_table":[]})
             if ts_document.tax_category:
@@ -175,3 +174,7 @@ def ts_tax_breakup_separater(ts_document,action):
                             "ts_taxable_values":ts_final_valuable_amount[ts_i],
                             "ts_total_tax_amount":ts_final_igst_amount[ts_i]
                         })
+
+            if action == "on_update_after_submit":
+                ts_document.run_method = lambda arg, **kwargs: 0
+                ts_document.save("update")
