@@ -30,7 +30,7 @@ def item_tax_amount(doc,event):
                 cgst_checking_completed=[]
                 igst_checking_completed=[]
                 sgst_checking_completed=[]
-                itemised_tax, itemised_taxable_amount = get_itemised_tax_breakup_data(doc)
+                itemised_tax_data, itemised_tax, itemised_taxable_amount = get_itemised_tax_breakup_data(doc)
                 ts_tax_details=list(itemised_tax.values())
                 for ts_i in range(0,len(ts_tax_details),1):
                     ts_tax_category.append(list(ts_tax_details[ts_i].keys()))

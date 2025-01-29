@@ -18,7 +18,7 @@ def ts_tax_breakup_separater(ts_document,action):
                         ts_tax_hsn.append(hsn.gst_hsn_code)
                     else:
                         ts_tax_hsn.append("")
-                itemised_tax, itemised_taxable_amount = get_itemised_tax_breakup_data(ts_document)
+                itemised_tax_data, itemised_tax, itemised_taxable_amount = get_itemised_tax_breakup_data(ts_document)
                 itemised_taxable_amount=list(itemised_taxable_amount.values())
                 ts_tax_item=list(itemised_tax.keys())
                 ts_tax_details=list(itemised_tax.values())
