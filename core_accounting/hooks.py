@@ -254,3 +254,12 @@ user_data_fields = [
 # Recommended only for DocTypes which have limited documents with untranslated names
 # For example: Role, Gender, etc.
 # translated_search_doctypes = []
+
+# Monkey patching
+import erpnext.controllers.taxes_and_totals 
+import india_compliance.gst_india.overrides.transaction
+import core_accounting.core_accounting.overrides.custom_taxes
+
+erpnext.controllers.taxes_and_totals.get_itemised_tax_breakup_html = core_accounting.core_accounting.overrides.custom_taxes.custom_get_itemised_tax_breakup_html
+erpnext.controllers.taxes_and_totals.get_itemised_tax_breakup_data = core_accounting.core_accounting.overrides.custom_taxes.custom_get_itemised_tax_breakup_data
+india_compliance.gst_india.overrides.transaction.get_itemised_tax_breakup_data = core_accounting.core_accounting.overrides.custom_taxes.get_itemised_tax_breakup_data
